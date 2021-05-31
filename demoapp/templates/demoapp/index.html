@@ -9,8 +9,14 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Welcome To DemoApp Template</h1>
-    <img src="{% static 'images/demo.jpg' %}" alt="Static image" />
+    <h1>Welcome To DemoApp Template</h1> <br />
+    {% for student in students  %}
+      <h3>{{ student.id }}</h3>
+      <h3>{{ student.name }}</h3>
+      <h3>{{ student.stuClass }}</h3>
+      <h3>{{ student.stuEmail }}</h3>
+    {% endfor %}
+    <!-- <img src="{% static 'images/demo.jpg' %}" alt="Static image" /> -->
     <script src="{% static 'js/app.js' %}"></script>
   </body>
 </html>
