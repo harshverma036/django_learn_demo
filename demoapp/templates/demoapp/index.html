@@ -9,23 +9,14 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Welcome To DemoApp Template</h1> <br />
-    {% if students %}
-      {% for student in students  %}
-        <h3>{{ student.id }}</h3>
-        <h3>{{ student.name }}</h3>
-        <h3>{{ student.stuClass }}</h3>
-        <h3>{{ student.stuEmail }}</h3>
-      {% endfor %}
-    {% endif %}
-    {% if form_data %}
-      <h1>{{ form_data.email }}</h1>
-      <h1>{{ form_data.password }}</h1>
-    {% endif %}
-    <form action="" method="post">
-      {% csrf_token %}
-      {{ contact.email }} <br>
-      {{ contact.password }} <br>
+    <h1>Welcome To DemoApp Template</h1>
+    <br />
+    <form action="" method="POST" novalidate>
+      {% csrf_token %} 
+      <!-- {{ contact.email }} <br />
+      {{ contact.password }} <br />
+      {{ contact.confirm_password }} <br /> -->
+      {{ contact.as_p }}
       <button type="submit">Send</button>
     </form>
     <!-- <img src="{% static 'images/demo.jpg' %}" alt="Static image" /> -->
