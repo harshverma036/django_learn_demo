@@ -10,9 +10,11 @@ def home_page(request):
     if request.method == 'POST':
         cont =  Contact(request.POST)
         if cont.is_valid():
-            print(cont.cleaned_data['email'])
-            print(cont.cleaned_data['password'])
-            print(cont.cleaned_data['confirm_password'])
+            name = cont.cleaned_data['name']
+            email = cont.cleaned_data['email']
+            stuClass = cont.cleaned_data['stuClass']
+            newStudent = StudentDetails(id=1, name=name, stuEmail=email, stuClass=stuClass)
+            newStudent.save() #same for delete: pass id and call delete() on that
     else:
         cont = Contact()
         students = StudentDetails.objects.all()
